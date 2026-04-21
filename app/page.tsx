@@ -25,7 +25,7 @@ function Hero() {
         </span>
 
         <h1 className="font-serif text-5xl leading-[1.05] text-mahogany md:text-6xl">
-          Hi, I&rsquo;m Diren &mdash; a
+          Hi, I&rsquo;m Diren. A
           <span className="relative ml-2 inline-block">
             <span className="relative z-10 text-pine">software engineer</span>
             <span
