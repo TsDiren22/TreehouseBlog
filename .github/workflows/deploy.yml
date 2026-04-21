@@ -2,7 +2,7 @@ name: deploy
 
 on:
   push:
-    branches: [main, master]
+    branches: [master]
   workflow_dispatch: {}
 
 concurrency:
@@ -11,7 +11,6 @@ concurrency:
 
 jobs:
   build-and-deploy:
-    # Runs on the self-hosted runner installed on the mini PC.
     runs-on: [self-hosted, Linux, X64]
 
     env:
