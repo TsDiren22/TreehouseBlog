@@ -47,7 +47,8 @@
   }
 
   .page-surface {
-    @apply pointer-events-none fixed inset-0 -z-20;
+    @apply pointer-events-none absolute inset-0 -z-20;
+    min-height: 100%;
     background-color: theme("colors.birch.DEFAULT");
     background-image:
       linear-gradient(180deg,
@@ -58,9 +59,6 @@
     background-size: auto, 800px 800px;
     background-repeat: no-repeat, repeat;
     background-position: center center, top left;
-    transform: translateZ(0);
-    will-change: transform;
-    backface-visibility: hidden;
   }
 
   .mobile-nav-panel {
