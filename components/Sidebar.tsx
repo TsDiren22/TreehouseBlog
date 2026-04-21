@@ -65,7 +65,7 @@ export function Sidebar() {
 
   return (
     <aside
-      className="wood-seam hidden md:flex md:flex-col
+      className="app-sidebar wood-seam hidden md:flex md:flex-col
                  md:sticky md:top-0 md:h-screen
                  w-[260px] shrink-0
                  bg-birch-light/60 backdrop-blur-[1px]"

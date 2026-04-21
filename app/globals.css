@@ -455,26 +455,107 @@ html[data-theme="moonlit"] .flicker-dot {
 }
 
 html[data-theme="moonlit"] .oak-frame {
-  background-color: #0C1013;
+  background-color: #17100B;
   background-image:
     url("/grain.svg"),
-    linear-gradient(135deg, #1A1F26 0%, #10161C 50%, #0A0D11 100%);
+    linear-gradient(135deg, #3A2619 0%, #27180F 52%, #1B110B 100%);
   box-shadow:
-    0 16px 32px -12px rgba(0, 0, 0, 0.65),
-    0 3px 0 rgba(0, 0, 0, 0.5),
-    inset 0 2px 0 rgba(203, 213, 209, 0.22),
-    inset 0 -2px 3px rgba(0, 0, 0, 0.65),
-    inset  2px 0 3px rgba(0, 0, 0, 0.45),
-    inset -2px 0 3px rgba(0, 0, 0, 0.45);
+    0 16px 32px -12px rgba(0, 0, 0, 0.68),
+    0 3px 0 rgba(0, 0, 0, 0.52),
+    inset 0 2px 0 rgba(255, 198, 138, 0.22),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.68),
+    inset  2px 0 3px rgba(0, 0, 0, 0.48),
+    inset -2px 0 3px rgba(0, 0, 0, 0.48);
 }
 html[data-theme="moonlit"] .oak-frame .oak-mat {
-  color: theme("colors.moon.glow");
+  color: #EEDFC6;
   background-image:
-    radial-gradient(circle at 22% 14%, rgba(40,60,80,0.10) 0 1px, transparent 2px),
-    radial-gradient(circle at 78% 58%, rgba(40,60,80,0.08) 0 1px, transparent 2px),
-    linear-gradient(180deg, #E4E8E0 0%, #C9CEC4 100%);
+    url("/grain.svg"),
+    radial-gradient(circle at 22% 14%, rgba(255,196,132,0.05) 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 58%, rgba(255,196,132,0.04) 0 1px, transparent 2px),
+    radial-gradient(circle at 48% 82%, rgba(255,196,132,0.03) 0 1px, transparent 2px),
+    linear-gradient(180deg, #3F2A1B 0%, #2A1A10 100%);
+  background-size: 420px 420px, auto, auto, auto, auto;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: top left, center center, center center, center center, center center;
+  background-blend-mode: soft-light, normal, normal, normal, normal;
   box-shadow:
-    inset 0 2px 4px rgba(15, 24, 36, 0.30),
-    inset 0 -1px 2px rgba(15, 24, 36, 0.15),
-    0 0 0 1px rgba(15, 24, 36, 0.55);
+    inset 0 2px 4px rgba(255, 198, 138, 0.10),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.40),
+    0 0 0 1px rgba(0, 0, 0, 0.55);
+}
+
+/* Utility-class contrast remap for moonlit mode.
+   Many sections still carry explicit warm-dark tokens (text-bark-*,
+   text-mahogany, text-pine-*); brighten them to preserve readability. */
+html[data-theme="moonlit"] .text-mahogany { color: #F1E4CD !important; }
+html[data-theme="moonlit"] .text-bark-700 { color: #DDCEB6 !important; }
+html[data-theme="moonlit"] .text-bark-500 { color: #BFAF97 !important; }
+html[data-theme="moonlit"] .text-pine-700 { color: #CFBEA4 !important; }
+html[data-theme="moonlit"] .text-pine-500 { color: #B4A287 !important; }
+html[data-theme="moonlit"] .eyebrow       { color: #BFAF97; }
+html[data-theme="moonlit"] .link-pine     { color: #E5D5BC; }
+html[data-theme="moonlit"] .link-pine:hover { color: #FFE2A8; }
+
+html[data-theme="moonlit"] .app-topbar,
+html[data-theme="moonlit"] .app-sidebar {
+  border-color: rgba(255, 196, 132, 0.20) !important;
+  background-color: #1E140E !important;
+  background-image:
+    url("/grain.svg"),
+    linear-gradient(180deg, rgba(62, 40, 26, 0.76) 0%, rgba(33, 22, 15, 0.82) 100%);
+  background-size: 420px 420px, auto;
+  background-repeat: repeat, no-repeat;
+  background-position: top left, center center;
+  background-blend-mode: soft-light, normal;
+  box-shadow:
+    inset -1px 0 0 rgba(255, 196, 132, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+}
+html[data-theme="moonlit"] .mobile-nav-panel {
+  background-color: #1E140E !important;
+  background-image:
+    url("/grain.svg"),
+    linear-gradient(180deg, rgba(62, 40, 26, 0.74) 0%, rgba(33, 22, 15, 0.80) 100%);
+  background-size: 420px 420px, auto;
+  background-repeat: repeat, no-repeat;
+  background-position: top left, center center;
+  background-blend-mode: soft-light, normal;
+}
+
+html[data-theme="moonlit"] .app-topbar nav,
+html[data-theme="moonlit"] .app-topbar nav .text-bark-700,
+html[data-theme="moonlit"] .app-sidebar .tree-row {
+  color: #E6D7C0 !important;
+}
+html[data-theme="moonlit"] .app-topbar .text-bark-500,
+html[data-theme="moonlit"] .app-topbar .text-bark-500\/70,
+html[data-theme="moonlit"] .app-sidebar .text-bark-500 {
+  color: #BFAF97 !important;
+}
+html[data-theme="moonlit"] .app-topbar .text-pine-700,
+html[data-theme="moonlit"] .app-sidebar .text-pine,
+html[data-theme="moonlit"] .app-sidebar .text-pine-500 {
+  color: #D8C5A8 !important;
+}
+html[data-theme="moonlit"] .app-topbar .text-mahogany,
+html[data-theme="moonlit"] .app-sidebar .text-mahogany {
+  color: #F1E4CD !important;
+}
+html[data-theme="moonlit"] .mobile-nav-panel .text-mahogany,
+html[data-theme="moonlit"] .mobile-nav-panel .text-bark-500,
+html[data-theme="moonlit"] .mobile-nav-panel .text-pine-700 {
+  color: #E9DCC7 !important;
+}
+html[data-theme="moonlit"] .mobile-nav-panel [class*=\"ring-mahogany\"] {
+  --tw-ring-color: rgba(255, 196, 132, 0.35) !important;
+}
+html[data-theme="moonlit"] .app-sidebar .tree-row:hover {
+  background-color: rgba(255, 196, 132, 0.12);
+  color: #F1E4CD !important;
+}
+html[data-theme="moonlit"] .app-sidebar .tree-row[data-active="true"] {
+  background-color: rgba(255, 179, 71, 0.22);
+  color: #F6E8D0 !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 179, 71, 0.40);
 }
