@@ -1,0 +1,47 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    # Runs on the self-hosted runner installed on the mini PC.
+    runs-on: [self-hosted, Linux, X64]
+
+    env:
+      WEB_ROOT: /var/www/diren
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build (static export)
+        run: npm run build
+
+      - name: Publish to ${{ env.WEB_ROOT }}
+        run: |
+          mkdir -p "$WEB_ROOT"
+          # --delete removes stale files from previous deploys;
+          # the nginx:alpine container picks up changes live.
+          rsync -a --delete out/ "$WEB_ROOT"/
+
+      - name: Summary
+        run: |
+          echo "Deployed $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+          echo "Files:     $(find "$WEB_ROOT" -type f | wc -l)"
+          echo "Size:      $(du -sh "$WEB_ROOT" | cut -f1)"
