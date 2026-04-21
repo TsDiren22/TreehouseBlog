@@ -369,17 +369,25 @@
   50%      { transform: translateY(0) rotate( 5deg); }
 }
 
-/* Moonlit theme. A navy multiply + silver screen pass over the warm palette. */
-
 html[data-theme="moonlit"] body {
   color: theme("colors.moon.silver");
 }
 
-html[data-theme="moonlit"] body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
+.moon-multiply,
+.moon-screen {
   pointer-events: none;
+  position: fixed;
+  top: -10vh;
+  bottom: -10vh;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 700ms ease;
+  transform: translateZ(0);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+.moon-multiply {
   z-index: 55;
   background: linear-gradient(
     180deg,
@@ -388,12 +396,7 @@ html[data-theme="moonlit"] body::before {
   );
   mix-blend-mode: multiply;
 }
-
-html[data-theme="moonlit"] body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
+.moon-screen {
   z-index: 56;
   background:
     radial-gradient(ellipse at 18% 12%, rgba(203, 213, 209, 0.18), transparent 55%),
@@ -401,8 +404,10 @@ html[data-theme="moonlit"] body::after {
   mix-blend-mode: screen;
 }
 
-html[data-theme="moonlit"] .ambient-lit  { opacity: 0; }
-html[data-theme="moonlit"] .ambient-moon { opacity: 0.75; }
+html[data-theme="moonlit"] .ambient-lit    { opacity: 0; }
+html[data-theme="moonlit"] .ambient-moon   { opacity: 0.75; }
+html[data-theme="moonlit"] .moon-multiply  { opacity: 1; }
+html[data-theme="moonlit"] .moon-screen    { opacity: 1; }
 
 html[data-theme="moonlit"] .schematic-pin {
   background-color: #E2E8DF;

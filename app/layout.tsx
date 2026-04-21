@@ -88,6 +88,9 @@ export default function RootLayout({
           }}
         />
 
+        <div aria-hidden="true" className="moon-multiply" />
+        <div aria-hidden="true" className="moon-screen" />
+
         <div className="relative z-10 flex min-h-screen">
           <Sidebar />
 
