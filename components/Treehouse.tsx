@@ -1,13 +1,16 @@
 import type { SVGProps } from "react";
 
 export function Treehouse(props: SVGProps<SVGSVGElement>) {
+  const { className = "", ...svgProps } = props;
+
   return (
     <svg
       viewBox="0 0 320 360"
       fill="none"
       aria-labelledby="treehouse-title"
       role="img"
-      {...props}
+      className={`treehouse-art ${className}`.trim()}
+      {...svgProps}
     >
       <title id="treehouse-title">
         A small wooden treehouse nestled in a pine canopy, with a lit
@@ -35,7 +38,7 @@ export function Treehouse(props: SVGProps<SVGSVGElement>) {
         </linearGradient>
       </defs>
 
-      <circle cx="160" cy="210" r="110" fill="#FFB347" opacity="0.18" />
+      <circle className="treehouse-lit" cx="160" cy="210" r="110" fill="#FFB347" opacity="0.18" />
 
       <g>
         <circle cx="80"  cy="110" r="44" fill="#223D16" />
@@ -73,10 +76,11 @@ export function Treehouse(props: SVGProps<SVGSVGElement>) {
           x="75" y="220" width="20" height="22" rx="2"
           fill="#4A2C2A" stroke="#3A2120" strokeWidth="0.8"
         />
-        <rect x="78" y="223" width="14" height="16" fill="url(#lanternGlow)" />
+        <rect x="78" y="223" width="14" height="16" fill="#5E4A37" />
+        <rect className="treehouse-lit" x="78" y="223" width="14" height="16" fill="url(#lanternGlow)" />
         <line x1="85" y1="223" x2="85" y2="239" stroke="#3A2120" strokeWidth="0.6" opacity="0.5" />
         <rect x="80" y="242" width="10" height="2" fill="#3A2120" />
-        <circle cx="85" cy="230" r="18" fill="#FFB347" opacity="0.22" />
+        <circle className="treehouse-lit" cx="85" cy="230" r="18" fill="#FFB347" opacity="0.22" />
       </g>
 
       <rect x="85" y="222" width="150" height="6" fill="#4A2C2A" />
@@ -90,16 +94,17 @@ export function Treehouse(props: SVGProps<SVGSVGElement>) {
       <line x1="95"  y1="198" x2="225" y2="198" stroke="#8C6A44" strokeWidth="0.6" opacity="0.55" />
       <line x1="95"  y1="212" x2="225" y2="212" stroke="#8C6A44" strokeWidth="0.6" opacity="0.55" />
 
-      <rect x="117" y="182" width="36" height="30" fill="url(#windowGlow)" />
+      <rect x="117" y="182" width="36" height="30" fill="#6A5845" />
+      <rect className="treehouse-lit" x="117" y="182" width="36" height="30" fill="url(#windowGlow)" />
       <rect x="117" y="182" width="36" height="30" fill="none" stroke="#4A2C2A" strokeWidth="1.5" />
       <line x1="135" y1="182" x2="135" y2="212" stroke="#4A2C2A" strokeWidth="1" />
       <line x1="117" y1="197" x2="153" y2="197" stroke="#4A2C2A" strokeWidth="1" />
       <rect x="114" y="211" width="42" height="3" fill="#4A2C2A" />
-      <path d="M 117 212 L 100 224 L 170 224 L 153 212 Z" fill="#FFB347" opacity="0.25" />
+      <path className="treehouse-lit" d="M 117 212 L 100 224 L 170 224 L 153 212 Z" fill="#FFB347" opacity="0.25" />
 
       <rect x="178" y="190" width="24" height="32" fill="#4A2C2A" stroke="#3A2120" strokeWidth="1" />
       <rect x="180" y="192" width="20" height="28" fill="none" stroke="#8C6A44" strokeWidth="0.5" />
-      <circle cx="197" cy="207" r="1.2" fill="#FFB347" />
+      <circle className="treehouse-lit" cx="197" cy="207" r="1.2" fill="#FFB347" />
 
       <path
         d="M 80 170 L 160 120 L 240 170 Z"
@@ -143,10 +148,10 @@ export function Treehouse(props: SVGProps<SVGSVGElement>) {
       <ellipse cx="210" cy="342" rx="6" ry="2" fill="#8C6A44" />
       <ellipse cx="220" cy="344" rx="4" ry="1.5" fill="#8C6A44" />
 
-      <circle cx="60"  cy="170" r="1.3" fill="#FFB347" />
-      <circle cx="262" cy="178" r="1.1" fill="#FFB347" />
-      <circle cx="42"  cy="200" r="1"   fill="#FFB347" />
-      <circle cx="280" cy="205" r="1"   fill="#FFB347" />
+      <circle className="treehouse-lit" cx="60"  cy="170" r="1.3" fill="#FFB347" />
+      <circle className="treehouse-lit" cx="262" cy="178" r="1.1" fill="#FFB347" />
+      <circle className="treehouse-lit" cx="42"  cy="200" r="1"   fill="#FFB347" />
+      <circle className="treehouse-lit" cx="280" cy="205" r="1"   fill="#FFB347" />
     </svg>
   );
 }

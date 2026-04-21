@@ -352,6 +352,16 @@
     color: #7C8B99;
     filter: drop-shadow(0 0 2px rgba(203, 213, 209, 0.4));
   }
+
+  .treehouse-art .treehouse-lit {
+    opacity: 0;
+    transition: opacity 360ms ease;
+  }
+
+  .hero-engineer-glow {
+    opacity: 0;
+    transition: opacity 260ms ease;
+  }
 }
 
 @keyframes sprout {
@@ -549,6 +559,18 @@ html[data-theme="moonlit"] .mobile-nav-panel .text-pine-700 {
 }
 html[data-theme="moonlit"] .mobile-nav-panel [class*=\"ring-mahogany\"] {
   --tw-ring-color: rgba(255, 196, 132, 0.35) !important;
+}
+html[data-theme="moonlit"] .treehouse-art .treehouse-lit {
+  opacity: 1;
+}
+html[data-theme="moonlit"] .hero-engineer-glow {
+  opacity: 1;
+}
+html[data-theme="moonlit"] .hero-engineer-text {
+  color: #BFD7A8 !important;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.35),
+    0 0 10px rgba(191, 215, 168, 0.18);
 }
 html[data-theme="moonlit"] .app-sidebar .tree-row:hover {
   background-color: rgba(255, 196, 132, 0.12);

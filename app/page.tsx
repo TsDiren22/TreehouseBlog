@@ -28,11 +28,13 @@ function Hero() {
         <h1 className="font-serif text-[2.25rem] leading-[1.08] text-mahogany
                        sm:text-5xl sm:leading-[1.05] md:text-6xl">
           Hi, I&rsquo;m Diren. A
-          <span className="relative ml-2 inline-block">
-            <span className="relative z-10 text-pine">software engineer</span>
+          <span className="relative ml-2 inline-block whitespace-nowrap">
+            <span className="hero-engineer-text relative z-10 text-pine">software engineer</span>
             <span
               aria-hidden="true"
-              className="absolute inset-x-0 bottom-1 -z-10 h-3 rounded-full bg-lantern/60 blur-[2px]"
+              className="hero-engineer-glow absolute left-1 right-1 bottom-0 -z-10 h-2 rounded-full
+                         bg-gradient-to-r from-lantern/0 via-lantern/45 to-lantern/0
+                         blur-[1.5px]"
             />
           </span>
           {" "}working on my own projects.
@@ -40,7 +42,7 @@ function Hero() {
 
         <p className="mt-5 max-w-xl font-sans text-[15px] leading-relaxed text-bark-700
                       sm:mt-6 sm:text-base md:text-lg">
-          Dutch-Turkish, born 4 August 2001. I write code for a living,
+          Dutch-Turkish, born August 4th, 2001. I write code for a living,
           build useful (and useless) tools for the fun of it, and keep notes on what
           I&rsquo;m learning.
         </p>
@@ -85,7 +87,7 @@ function About() {
                 I&rsquo;m a software engineer from the Netherlands with
                 Turkish roots. I grew up between two languages, two cuisines,
                 and one keyboard. Born on{" "}
-                <span className="text-mahogany">4 August 2001</span>. I&rsquo;ve been near a computer for most of my life.
+                <span className="text-mahogany">August 4th, 2001</span>. I&rsquo;ve been near a computer for most of my life.
               </p>
               <p>
                 Professionally I build software for a living. I like the work most when it&rsquo;s a mix of deep engineering and honest design.
