@@ -54,6 +54,20 @@
     mix-blend-mode: multiply;
   }
 
+  /* Drawer panel: birch base with tileable wood grain and a slightly
+     darker wash so it reads as a shaded surface relative to the page. */
+  .mobile-nav-panel {
+    background-color: theme("colors.birch.light");
+    background-image:
+      linear-gradient(180deg,
+        rgba(70, 40, 20, 0.14) 0%,
+        rgba(70, 40, 20, 0.18) 100%),
+      url("/grain.svg");
+    background-size: auto, 480px 480px;
+    background-repeat: no-repeat, repeat;
+    background-position: center center, top left;
+  }
+
   .plank {
     @apply relative rounded-plank bg-birch-light/70 backdrop-blur-[1px]
            ring-1 ring-bark-300/40 shadow-plank;

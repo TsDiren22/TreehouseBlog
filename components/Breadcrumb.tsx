@@ -34,7 +34,7 @@ export function Breadcrumb() {
 
   return (
     <header
-      className="sticky top-0 z-30
+      className="sticky top-0 z-50
                  border-b border-bark-300/40
                  bg-birch-light/75 backdrop-blur-sm"
     >
