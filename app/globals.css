@@ -1,0 +1,435 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body {
+    @apply font-sans text-mahogany bg-birch;
+    /* Two backgrounds: top layer is a non-repeating vertical warmth
+       wash, bottom layer is the tileable wood grain. */
+    background-image:
+      linear-gradient(180deg,
+        rgba(255, 225, 170, 0.30) 0%,
+        rgba(210, 180, 140, 0.00) 55%,
+        rgba(120,  80,  50, 0.18) 100%),
+      url("/grain.svg");
+    background-size: auto, 800px 800px;
+    background-repeat: no-repeat, repeat;
+    background-attachment: fixed, fixed;
+    background-position: center center, top left;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif text-mahogany;
+    font-optical-sizing: auto;
+  }
+
+  ::selection {
+    background: theme("colors.lantern.DEFAULT");
+    color: theme("colors.mahogany.DEFAULT");
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.lantern.DEFAULT");
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .grain-overlay {
+    @apply pointer-events-none fixed inset-0 z-[60];
+    background-image: url("/grain.svg");
+    background-size: 240px 240px;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+  }
+
+  .plank {
+    @apply relative rounded-plank bg-birch-light/70 backdrop-blur-[1px]
+           ring-1 ring-bark-300/40 shadow-plank;
+    background-image: theme("backgroundImage.knot-radial");
+  }
+
+  /* Oak photo frame. Pair with a child .oak-mat for the content. */
+  .oak-frame {
+    position: relative;
+    padding: 12px;
+    border-radius: 6px;
+    background-color: #2A170E;
+    background-image:
+      url("/grain.svg"),
+      linear-gradient(135deg, #3A2418 0%, #2A170E 50%, #1E100A 100%);
+    background-size: 600px 600px, auto;
+    background-repeat: repeat, no-repeat;
+    background-blend-mode: multiply, normal;
+    box-shadow:
+      0 16px 32px -12px rgba(18, 10, 6, 0.55),
+      0 3px 0 rgba(0, 0, 0, 0.30),
+      inset 0 2px 0 rgba(255, 200, 140, 0.28),   /* top bevel highlight */
+      inset 0 -2px 3px rgba(0, 0, 0, 0.55),      /* bottom bevel shadow */
+      inset  2px 0 3px rgba(0, 0, 0, 0.30),
+      inset -2px 0 3px rgba(0, 0, 0, 0.30);
+    transition: transform 320ms ease, box-shadow 320ms ease;
+  }
+
+  .oak-frame:hover {
+    transform: translateY(-2px) rotate(0.25deg);
+  }
+
+  .oak-frame .oak-mat {
+    position: relative;
+    border-radius: 2px;
+    color: theme("colors.mahogany.DEFAULT");
+    background-image:
+      radial-gradient(circle at 22% 14%, rgba(110,80,40,0.05) 0 1px, transparent 2px),
+      radial-gradient(circle at 78% 58%, rgba(110,80,40,0.04) 0 1px, transparent 2px),
+      radial-gradient(circle at 48% 82%, rgba(110,80,40,0.03) 0 1px, transparent 2px),
+      linear-gradient(180deg, #F4E9CB 0%, #E9D8B0 100%);
+    box-shadow:
+      inset 0 2px 4px rgba(74, 44, 42, 0.30),
+      inset 0 -1px 2px rgba(74, 44, 42, 0.15),
+      0 0 0 1px rgba(74, 44, 42, 0.45);
+  }
+
+  .oak-nameplate {
+    @apply inline-flex items-center gap-1.5
+           rounded-[3px] px-2 py-[3px]
+           font-mono text-[10px] uppercase tracking-carved
+           text-bark-50;
+    background: linear-gradient(180deg, #8C6A44 0%, #5A4229 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 220, 170, 0.35),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+      0 1px 2px rgba(0, 0, 0, 0.35);
+  }
+
+  .btn-lantern {
+    @apply inline-flex items-center gap-2 rounded-plank
+           bg-mahogany text-birch-light
+           px-5 py-2.5 font-sans text-sm tracking-carved
+           transition-[box-shadow,transform,background-color] duration-300
+           ring-1 ring-mahogany-700/60;
+  }
+  .btn-lantern:hover {
+    @apply bg-mahogany-700 shadow-lantern -translate-y-[1px];
+    color: theme("colors.lantern.soft");
+  }
+
+  .link-pine {
+    @apply relative font-mono text-sm text-pine-700 transition-colors;
+  }
+  .link-pine::after {
+    content: "";
+    @apply absolute left-0 -bottom-0.5 h-px w-0 bg-pine transition-all duration-300;
+  }
+  .link-pine:hover {
+    @apply text-pine;
+  }
+  .link-pine:hover::after {
+    @apply w-full bg-lantern;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-carved
+           text-bark-500;
+  }
+
+  .workspace { /* structural hook */ }
+
+  .wood-seam {
+    box-shadow:
+      inset -1px 0 0 rgba(74, 44, 42, 0.35),
+      inset -2px 0 0 rgba(255, 216, 154, 0.15);
+  }
+
+  .schematic-card {
+    --mx: -9999px;
+    --my: -9999px;
+    @apply relative isolate overflow-hidden rounded-[10px]
+           bg-parchment text-mahogany
+           transition-[transform,box-shadow] duration-300;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(110,80,40,0.05) 0 1px, transparent 2px),
+      radial-gradient(circle at 80% 60%, rgba(110,80,40,0.04) 0 1px, transparent 2px),
+      radial-gradient(circle at 50% 85%, rgba(110,80,40,0.03) 0 1px, transparent 2px),
+      linear-gradient(180deg, #F2E9D1 0%, #EADFBE 100%);
+  }
+  .schematic-card:hover,
+  .schematic-card:focus-within {
+    @apply -translate-y-1;
+    box-shadow:
+      0 0 0 1px rgba(255, 179, 71, 0.55),
+      0 12px 28px -10px rgba(255, 179, 71, 0.55),
+      0 0 60px rgba(255, 179, 71, 0.30);
+  }
+
+  /* Cursor-tracked radial spotlight; --mx/--my are set by JS on hover. */
+  .lantern-spot {
+    @apply pointer-events-none absolute inset-0 z-0 rounded-[inherit]
+           opacity-0 transition-opacity duration-300;
+    background: radial-gradient(
+      260px circle at var(--mx) var(--my),
+      rgba(255, 179, 71, 0.55) 0%,
+      rgba(255, 179, 71, 0.22) 35%,
+      rgba(255, 179, 71, 0) 70%
+    );
+    mix-blend-mode: multiply;
+  }
+  .schematic-card:hover .lantern-spot,
+  .schematic-card:focus-within .lantern-spot {
+    @apply opacity-100;
+  }
+
+  .icon-stamp {
+    @apply inline-flex h-10 w-10 shrink-0 items-center justify-center
+           rounded-[8px] bg-parchment-cool/80
+           text-mahogany ring-1 ring-mahogany/40;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      inset 0 -1px 0 rgba(74, 44, 42, 0.10);
+  }
+
+  .card-lantern {
+    @apply pointer-events-none absolute z-30;
+    top: -34px;
+    right: 18px;
+    width: 34px;
+    height: 58px;
+    transform-origin: 50% 0%;
+    transform: translateY(-14px) rotate(-18deg);
+    opacity: 0;
+    transition:
+      opacity 280ms ease-out,
+      transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    filter: drop-shadow(0 4px 6px rgba(74, 44, 42, 0.35));
+  }
+  .schematic-card:hover .card-lantern,
+  .schematic-card:focus-within .card-lantern {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+    animation: card-lantern-sway 3.6s ease-in-out 550ms infinite;
+  }
+
+  .schematic-pin {
+    @apply pointer-events-none absolute left-1/2 top-2 z-20
+           -translate-x-1/2
+           h-2.5 w-2.5 rounded-full
+           bg-lantern;
+    box-shadow:
+      inset 0 -1px 0 rgba(74, 44, 42, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      0 2px 4px rgba(74, 44, 42, 0.35),
+      0 0 10px rgba(255, 179, 71, 0.55);
+  }
+
+  .tree-row {
+    @apply flex w-full items-center gap-2 rounded-md px-2 py-1
+           font-mono text-[12.5px] leading-5
+           text-bark-700 transition-colors;
+  }
+  .tree-row:hover {
+    @apply bg-birch-shadow/40 text-mahogany;
+  }
+  .tree-row[data-active="true"] {
+    @apply bg-lantern/25 text-mahogany ring-1 ring-lantern/40;
+  }
+
+  .commit-cell {
+    @apply relative rounded-[2px];
+    width: 12px;
+    height: 12px;
+    transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .commit-cell:hover,
+  .commit-cell:focus-visible {
+    transform: scale(1.35);
+    z-index: 5;
+    box-shadow: 0 0 0 1px rgba(47, 87, 53, 0.6);
+  }
+
+  .commit-cell .sprout {
+    @apply pointer-events-none absolute;
+    left: 50%;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    transform: translate(-50%, 20%) scale(0);
+    opacity: 0;
+  }
+  .commit-cell:hover .sprout,
+  .commit-cell:focus-visible .sprout {
+    animation: sprout 550ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+
+  .earth-code {
+    @apply relative overflow-hidden rounded-plank ring-1 ring-mahogany-900/60;
+    background: #1F1611;
+    color: #DFC8A6;
+    font-family: var(--font-jetbrains), ui-monospace, "SFMono-Regular",
+      Menlo, monospace;
+    font-size: 12.5px;
+    line-height: 1.7;
+  }
+  .earth-code .earth-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: linear-gradient(180deg, #2A1F1A, #231813);
+    border-bottom: 1px solid #3A2A24;
+    color: #A88864;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .earth-code .earth-head .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+  }
+  .earth-code pre {
+    margin: 0;
+    padding: 16px 18px;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .earth-code .tok-str { color: #B27A45; }
+  .earth-code .tok-fn  { color: #8AA581; }
+  .earth-code .tok-var { color: #C17B5E; }
+  .earth-code .tok-kw  { color: #D9854A; font-weight: 500; }
+  .earth-code .tok-num { color: #E2B86C; }
+  .earth-code .tok-com { color: #7A6456; font-style: italic; }
+
+  .lantern-toggle {
+    @apply relative inline-flex h-8 w-8 items-center justify-center
+           rounded-full ring-1 ring-mahogany/40
+           transition duration-300;
+  }
+  .lantern-toggle:hover {
+    @apply ring-lantern/80;
+  }
+  .lantern-toggle svg {
+    transition: color 300ms, filter 300ms;
+  }
+  .lantern-toggle[data-on="true"] svg {
+    color: #FFB347;
+    filter: drop-shadow(0 0 5px rgba(255, 179, 71, 0.7))
+            drop-shadow(0 0 10px rgba(255, 179, 71, 0.35));
+    animation: flicker 4s ease-in-out infinite;
+  }
+  .lantern-toggle[data-on="false"] svg {
+    color: #7C8B99;
+    filter: drop-shadow(0 0 2px rgba(203, 213, 209, 0.4));
+  }
+}
+
+@keyframes sprout {
+  0%   { transform: translate(-50%,  25%) scale(0)    rotate(-6deg); opacity: 0; }
+  45%  { transform: translate(-50%, -35%) scale(0.85) rotate( 3deg); opacity: 1; }
+  100% { transform: translate(-50%, -80%) scale(1)    rotate( 0deg); opacity: 1; }
+}
+
+@keyframes card-lantern-sway {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50%      { transform: translateY(0) rotate( 5deg); }
+}
+
+/* Moonlit theme. A navy multiply + silver screen pass over the warm palette. */
+
+html[data-theme="moonlit"] body {
+  color: theme("colors.moon.silver");
+}
+
+html[data-theme="moonlit"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 55;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 24, 36, 0.55) 0%,
+    rgba(11, 18, 28, 0.70) 100%
+  );
+  mix-blend-mode: multiply;
+}
+
+html[data-theme="moonlit"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 56;
+  background:
+    radial-gradient(ellipse at 18% 12%, rgba(203, 213, 209, 0.18), transparent 55%),
+    radial-gradient(ellipse at 82% 88%, rgba(203, 213, 209, 0.08), transparent 50%);
+  mix-blend-mode: screen;
+}
+
+html[data-theme="moonlit"] .ambient-lit  { opacity: 0; }
+html[data-theme="moonlit"] .ambient-moon { opacity: 0.75; }
+
+html[data-theme="moonlit"] .schematic-pin {
+  background-color: #E2E8DF;
+  box-shadow:
+    inset 0 -1px 0 rgba(27, 42, 58, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 2px 4px rgba(15, 24, 36, 0.55),
+    0 0 10px rgba(203, 213, 209, 0.55);
+}
+html[data-theme="moonlit"] .schematic-card:hover,
+html[data-theme="moonlit"] .schematic-card:focus-within {
+  box-shadow:
+    0 0 0 1px rgba(203, 213, 209, 0.50),
+    0 12px 28px -10px rgba(203, 213, 209, 0.35),
+    0 0 60px rgba(43, 59, 71, 0.45);
+}
+html[data-theme="moonlit"] .lantern-spot {
+  background: radial-gradient(
+    260px circle at var(--mx) var(--my),
+    rgba(203, 213, 209, 0.45) 0%,
+    rgba(203, 213, 209, 0.15) 40%,
+    rgba(203, 213, 209, 0) 70%
+  );
+  mix-blend-mode: screen;
+}
+
+html[data-theme="moonlit"] .flicker-dot {
+  background-color: theme("colors.moon.silver");
+  box-shadow: 0 0 6px rgba(203, 213, 209, 0.55);
+}
+
+html[data-theme="moonlit"] .oak-frame {
+  background-color: #0C1013;
+  background-image:
+    url("/grain.svg"),
+    linear-gradient(135deg, #1A1F26 0%, #10161C 50%, #0A0D11 100%);
+  box-shadow:
+    0 16px 32px -12px rgba(0, 0, 0, 0.65),
+    0 3px 0 rgba(0, 0, 0, 0.5),
+    inset 0 2px 0 rgba(203, 213, 209, 0.22),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.65),
+    inset  2px 0 3px rgba(0, 0, 0, 0.45),
+    inset -2px 0 3px rgba(0, 0, 0, 0.45);
+}
+html[data-theme="moonlit"] .oak-frame .oak-mat {
+  color: theme("colors.moon.glow");
+  background-image:
+    radial-gradient(circle at 22% 14%, rgba(40,60,80,0.10) 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 58%, rgba(40,60,80,0.08) 0 1px, transparent 2px),
+    linear-gradient(180deg, #E4E8E0 0%, #C9CEC4 100%);
+  box-shadow:
+    inset 0 2px 4px rgba(15, 24, 36, 0.30),
+    inset 0 -1px 2px rgba(15, 24, 36, 0.15),
+    0 0 0 1px rgba(15, 24, 36, 0.55);
+}

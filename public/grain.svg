@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" preserveAspectRatio="none">
+  <!-- Tileable plywood grain. stitchTiles="stitch" keeps tile seams invisible
+       when this is repeated as a CSS background-image. -->
+  <defs>
+    <!-- Broad growth-ring streaks: very low horizontal freq, low vertical. -->
+    <filter id="rings" x="0" y="0" width="100%" height="100%">
+      <feTurbulence
+        type="turbulence"
+        baseFrequency="0.0035 0.11"
+        numOctaves="2"
+        seed="11"
+        stitchTiles="stitch"
+      />
+      <feColorMatrix values="
+        0 0 0 0 0.36
+        0 0 0 0 0.23
+        0 0 0 0 0.14
+        0.45 0.45 0.45 0 -0.12"/>
+    </filter>
+
+    <!-- Fine wood fibres: low horizontal, high vertical freq. -->
+    <filter id="fibers" x="0" y="0" width="100%" height="100%">
+      <feTurbulence
+        type="turbulence"
+        baseFrequency="0.007 0.65"
+        numOctaves="3"
+        seed="5"
+        stitchTiles="stitch"
+      />
+      <feColorMatrix values="
+        0 0 0 0 0.30
+        0 0 0 0 0.18
+        0 0 0 0 0.10
+        0.55 0.55 0.55 0 -0.22"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" fill="#E3C899"/>
+  <rect width="800" height="800" filter="url(#rings)" opacity="0.5"/>
+  <rect width="800" height="800" filter="url(#fibers)" opacity="0.7"/>
+</svg>
