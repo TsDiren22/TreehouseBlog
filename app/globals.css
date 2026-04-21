@@ -36,14 +36,12 @@
 
 @layer components {
   .grain-overlay {
-    @apply pointer-events-none fixed inset-0 z-[60];
+    @apply pointer-events-none absolute inset-0 z-[60];
+    min-height: 100%;
     background-image: url("/grain.svg");
     background-size: 240px 240px;
     opacity: 0.35;
     mix-blend-mode: multiply;
-    transform: translateZ(0);
-    will-change: transform;
-    backface-visibility: hidden;
   }
 
   .page-surface {
