@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 
 export default function Home() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-10 md:px-10">
+    <div className="mx-auto flex max-w-5xl flex-col gap-4 px-5 py-8 sm:px-6 sm:py-10 md:px-10">
       <Hero />
       <About />
       <RecentPosts />
@@ -16,7 +16,8 @@ export default function Home() {
 
 function Hero() {
   return (
-    <section className="relative grid items-center gap-8 pt-8 pb-20
+    <section className="relative grid items-center gap-6 pt-4 pb-12
+                        sm:gap-8 sm:pt-8 sm:pb-20
                         md:pt-12 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
       <div className="relative flex flex-col items-start">
         <span className="eyebrow mb-4">
@@ -24,7 +25,8 @@ function Hero() {
           diren &middot; dutch-turkish &middot; est. 2001
         </span>
 
-        <h1 className="font-serif text-5xl leading-[1.05] text-mahogany md:text-6xl">
+        <h1 className="font-serif text-[2.25rem] leading-[1.08] text-mahogany
+                       sm:text-5xl sm:leading-[1.05] md:text-6xl">
           Hi, I&rsquo;m Diren. A
           <span className="relative ml-2 inline-block">
             <span className="relative z-10 text-pine">software engineer</span>
@@ -36,13 +38,14 @@ function Hero() {
           {" "}working on my own projects.
         </h1>
 
-        <p className="mt-6 max-w-xl font-sans text-base leading-relaxed text-bark-700 md:text-lg">
+        <p className="mt-5 max-w-xl font-sans text-[15px] leading-relaxed text-bark-700
+                      sm:mt-6 sm:text-base md:text-lg">
           Dutch-Turkish, born 4 August 2001. I write code for a living,
           build useful (and useless) tools for the fun of it, and keep notes on what
           I&rsquo;m learning.
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
+        <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8">
           <Link href="/journal" className="btn-lantern">
             Read the journal
             <ArrowIcon className="h-4 w-4" />
@@ -53,7 +56,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="relative mx-auto w-full max-w-[420px] lg:max-w-none">
+      <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[420px] lg:max-w-none">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-6 -z-10 rounded-full bg-lantern/30 blur-2xl"
@@ -66,10 +69,10 @@ function Hero() {
 
 function About() {
   return (
-    <section id="about" className="py-10">
+    <section id="about" className="py-8 sm:py-10">
       <div className="oak-frame">
-        <div className="oak-mat p-8 md:p-10">
-          <div className="mb-5 flex items-baseline justify-between gap-4">
+        <div className="oak-mat p-6 sm:p-8 md:p-10">
+          <div className="mb-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
             <h2 className="font-serif text-2xl text-mahogany md:text-3xl">
               About me
             </h2>
@@ -127,8 +130,8 @@ function About() {
 
 function RecentPosts() {
   return (
-    <section id="journal" className="py-10">
-      <header className="mb-8 flex items-baseline justify-between gap-4">
+    <section id="journal" className="py-8 sm:py-10">
+      <header className="mb-6 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 sm:mb-8">
         <div>
           <p className="eyebrow">§ journal</p>
           <h2 className="mt-1 font-serif text-2xl text-mahogany md:text-3xl">
@@ -141,7 +144,7 @@ function RecentPosts() {
       </header>
 
       <div className="oak-frame">
-        <div className="oak-mat flex min-h-[260px] flex-col items-center justify-center gap-3 p-10 text-center">
+        <div className="oak-mat flex min-h-[220px] flex-col items-center justify-center gap-3 p-6 text-center sm:min-h-[260px] sm:p-10">
           <span className="oak-nameplate">entry 00</span>
           <p className="font-serif text-3xl text-mahogany md:text-4xl">
             Coming soon
@@ -157,8 +160,8 @@ function RecentPosts() {
 
 function ClosingLine() {
   return (
-    <section className="py-8">
-      <p className="mx-auto max-w-xl text-center font-serif text-lg leading-relaxed text-mahogany">
+    <section className="py-6 sm:py-8">
+      <p className="mx-auto max-w-xl px-2 text-center font-serif text-base leading-relaxed text-mahogany sm:text-lg">
         If anything here was interesting, or you&rsquo;re working on
         something with cool that you want to share, {" "}
         <Link href="/contact" className="link-pine">

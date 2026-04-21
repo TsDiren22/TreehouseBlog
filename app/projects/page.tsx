@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="mx-auto flex max-w-3xl flex-col gap-4 px-6 py-10 md:px-10">
+    <div className="mx-auto flex max-w-3xl flex-col gap-4 px-5 py-8 sm:px-6 sm:py-10 md:px-10">
       <PageHeader
         eyebrow="§ projects"
         title="Projects"
@@ -16,7 +16,7 @@ export default function ProjectsPage() {
       />
 
       <div className="oak-frame">
-        <div className="oak-mat flex min-h-[320px] flex-col items-center justify-center gap-3 p-10 text-center">
+        <div className="oak-mat flex min-h-[240px] flex-col items-center justify-center gap-3 p-6 text-center sm:min-h-[320px] sm:p-10">
           <span className="oak-nameplate">fig. 01</span>
           <p className="font-serif text-3xl text-mahogany md:text-4xl">
             Coming soon

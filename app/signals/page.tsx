@@ -30,7 +30,7 @@ for (const r of rooms) light(r);
 
 export default function SignalsPage() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-10 md:px-10">
+    <div className="mx-auto flex max-w-5xl flex-col gap-4 px-5 py-8 sm:px-6 sm:py-10 md:px-10">
       <PageHeader
         eyebrow="§ signals"
         title="What I'm working on"
@@ -39,8 +39,8 @@ export default function SignalsPage() {
 
       <div className="grid gap-6 lg:grid-cols-5">
         <section className="oak-frame lg:col-span-3">
-          <div className="oak-mat p-6 md:p-7">
-            <div className="mb-4 flex items-baseline justify-between gap-4">
+          <div className="oak-mat p-5 sm:p-6 md:p-7">
+            <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
               <h2 className="font-serif text-xl text-mahogany md:text-2xl">
                 Commits
               </h2>
@@ -51,8 +51,8 @@ export default function SignalsPage() {
         </section>
 
         <section className="oak-frame lg:col-span-2">
-          <div className="oak-mat p-6 md:p-7">
-            <div className="mb-4 flex items-baseline justify-between gap-4">
+          <div className="oak-mat p-5 sm:p-6 md:p-7">
+            <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
               <h2 className="font-serif text-xl text-mahogany md:text-2xl">
                 Currently open
               </h2>

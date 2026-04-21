@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto flex max-w-3xl flex-col gap-4 px-6 py-10 md:px-10">
+    <div className="mx-auto flex max-w-3xl flex-col gap-4 px-5 py-8 sm:px-6 sm:py-10 md:px-10">
       <PageHeader
         eyebrow="§ contact"
         title="Get in touch"
@@ -16,8 +16,8 @@ export default function ContactPage() {
       />
 
       <div className="oak-frame">
-        <div className="oak-mat p-8 md:p-10">
-          <dl className="grid gap-5 md:grid-cols-2">
+        <div className="oak-mat p-6 sm:p-8 md:p-10">
+          <dl className="grid gap-5 sm:grid-cols-2">
             {/* add email row */}
             <ContactRow
               label="email"

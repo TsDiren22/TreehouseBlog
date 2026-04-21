@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { LanternToggle } from "./LanternToggle";
+import { MobileNav } from "./MobileNav";
 
 export type Crumb = {
   label: string;
@@ -37,7 +38,9 @@ export function Breadcrumb() {
                  border-b border-bark-300/40
                  bg-birch-light/75 backdrop-blur-sm"
     >
-      <div className="flex items-center gap-3 px-6 py-2.5">
+      <div className="flex items-center gap-3 px-4 py-2.5 md:px-6">
+        <MobileNav />
+
         <span className="hidden items-center gap-1.5 md:flex">
           <Dot className="bg-mahogany/70" />
           <Dot className="bg-pine/70" />
