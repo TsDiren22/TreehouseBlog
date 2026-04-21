@@ -33,7 +33,7 @@ function Hero() {
               className="absolute inset-x-0 bottom-1 -z-10 h-3 rounded-full bg-lantern/60 blur-[2px]"
             />
           </span>
-          {" "}working with AI.
+          {" "}working on my own projects.
         </h1>
 
         <p className="mt-6 max-w-xl font-sans text-base leading-relaxed text-bark-700 md:text-lg">
