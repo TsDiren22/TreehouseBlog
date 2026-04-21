@@ -69,6 +69,11 @@ export default function RootLayout({
           aria-hidden="true"
           className="ambient-lit pointer-events-none fixed inset-0 -z-10
                      bg-lantern-glow opacity-60 transition-opacity duration-700"
+          style={{
+            transform: "translateZ(0)",
+            willChange: "transform",
+            backfaceVisibility: "hidden",
+          }}
         />
         <div
           aria-hidden="true"
@@ -77,6 +82,9 @@ export default function RootLayout({
           style={{
             background:
               "radial-gradient(ellipse at 30% 20%, rgba(203,213,209,0.28) 0%, rgba(43,59,71,0.25) 45%, rgba(15,24,36,0.75) 95%)",
+            transform: "translateZ(0)",
+            willChange: "transform",
+            backfaceVisibility: "hidden",
           }}
         />
 
