@@ -60,10 +60,11 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrains.variable} ${fraunces.variable}`}
     >
       <head>
+        <meta name="color-scheme" content="light" />
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
       </head>
       <body className="relative antialiased">
-        {/* Two ambient haze layers, cross-faded by the active theme. */}
+        <div aria-hidden="true" className="page-surface" />
         <div
           aria-hidden="true"
           className="ambient-lit pointer-events-none fixed inset-0 -z-10

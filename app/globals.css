@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: only light;
   }
 
   html,
@@ -14,18 +14,6 @@
 
   body {
     @apply font-sans text-mahogany bg-birch;
-    /* Two backgrounds: top layer is a non-repeating vertical warmth
-       wash, bottom layer is the tileable wood grain. */
-    background-image:
-      linear-gradient(180deg,
-        rgba(255, 225, 170, 0.30) 0%,
-        rgba(210, 180, 140, 0.00) 55%,
-        rgba(120,  80,  50, 0.18) 100%),
-      url("/grain.svg");
-    background-size: auto, 800px 800px;
-    background-repeat: no-repeat, repeat;
-    background-attachment: fixed, fixed;
-    background-position: center center, top left;
   }
 
   h1, h2, h3, h4 {
@@ -54,8 +42,20 @@
     mix-blend-mode: multiply;
   }
 
-  /* Drawer panel: birch base with tileable wood grain and a slightly
-     darker wash so it reads as a shaded surface relative to the page. */
+  .page-surface {
+    @apply pointer-events-none fixed inset-0 -z-20;
+    background-color: theme("colors.birch.DEFAULT");
+    background-image:
+      linear-gradient(180deg,
+        rgba(255, 225, 170, 0.30) 0%,
+        rgba(210, 180, 140, 0.00) 55%,
+        rgba(120,  80,  50, 0.18) 100%),
+      url("/grain.svg");
+    background-size: auto, 800px 800px;
+    background-repeat: no-repeat, repeat;
+    background-position: center center, top left;
+  }
+
   .mobile-nav-panel {
     background-color: theme("colors.birch.light");
     background-image:
