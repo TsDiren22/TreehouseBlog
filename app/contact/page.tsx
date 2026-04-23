@@ -18,11 +18,10 @@ export default function ContactPage() {
       <div className="oak-frame">
         <div className="oak-mat p-6 sm:p-8 md:p-10">
           <dl className="grid gap-5 sm:grid-cols-2">
-            {/* add email row */}
             <ContactRow
               label="email"
-              value=""
-              href=""
+              value="info@diren.nl"
+              href="mailto:info@diren.nl"
             />
             <ContactRow label="github"   value="@TsDiren22	"     href="https://github.com/TsDiren22" />
             <ContactRow label="linkedin" value="Onur Diren Öztürk"  href="https://www.linkedin.com/in/onur-diren-öztürk-7948ba141/?locale=en_US" />
@@ -30,8 +29,8 @@ export default function ContactPage() {
           </dl>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a href="mailto:" className="btn-lantern">
-               	{/* add email here */}
+            <a href="mailto:info@diren.nl" className="btn-lantern">
+              Send email
             </a>
             <span className="font-mono text-[11px] uppercase tracking-carved text-bark-500">
               &mdash; replies within a day or two
