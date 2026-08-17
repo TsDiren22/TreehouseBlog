@@ -10,8 +10,10 @@ const NAV_ITEMS: { href: string; label: string; file: string }[] = [
   { href: "/",         label: "About",    file: "about.mdx" },
   { href: "/projects", label: "Projects", file: "projects/" },
   { href: "/journal",  label: "Journal",  file: "journal/" },
-  { href: "/signals",  label: "Signals",  file: "signals.tsx" },
-  { href: "/contact",  label: "Contact",  file: "contact.mdx" },
+  { href: "/photography", label: "Photos",     file: "photography/" },
+  { href: "/moodboard",   label: "Moodboard", file: "moodboard/" },
+  { href: "/signals",     label: "Signals",   file: "signals.tsx" },
+  { href: "/contact",     label: "Contact",  file: "contact.mdx" },
 ];
 
 function isActive(href: string, pathname: string): boolean {

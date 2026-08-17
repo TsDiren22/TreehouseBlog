@@ -1,71 +1,22 @@
-import { CommitGraph } from "@/components/CommitGraph";
-import { CodeBlock } from "@/components/CodeBlock";
 import { PageHeader } from "@/components/PageHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SpotifyShowcase } from "@/components/SpotifyShowcase";
 
 export const metadata = {
   title: "Signals · Diren",
-  description: "What I'm currently coding: commit activity and open files.",
+  description: "The Spotify playlist currently on repeat while I build things.",
 };
-
-const DEMO_CODE = `// a small treehouse utility
-import { glow } from "./lantern";
-
-type Room = "study" | "porch" | "nest";
-
-const lantern = {
-  color: "#FFB347",
-  lit:   true,
-};
-
-function light(room: Room): boolean {
-  if (!lantern.lit) return false;
-  return glow(room) === lantern.color;
-}
-
-// warm every room, one by one
-const rooms: Room[] = ["study", "porch", "nest"];
-for (const r of rooms) light(r);
-`;
 
 export default function SignalsPage() {
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-4 px-5 py-8 sm:px-6 sm:py-10 md:px-10">
       <PageHeader
         eyebrow="§ signals"
-        title="What I'm working on"
-        lede="A quick snapshot: my commit activity over the last year and a file I happen to have open right now. Updated whenever I remember to."
+        title="On Repeat"
+        lede="Forget commit graphs — here's the playlist that's actually been running on loop while I build this site."
       />
 
-      <div className="grid gap-6 lg:grid-cols-5">
-        <section className="oak-frame lg:col-span-3">
-          <div className="oak-mat p-5 sm:p-6 md:p-7">
-            <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-              <h2 className="font-serif text-xl text-mahogany md:text-2xl">
-                Commits
-              </h2>
-              <span className="oak-nameplate">last 12 months</span>
-            </div>
-            <CommitGraph />
-          </div>
-        </section>
-
-        <section className="oak-frame lg:col-span-2">
-          <div className="oak-mat p-5 sm:p-6 md:p-7">
-            <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-              <h2 className="font-serif text-xl text-mahogany md:text-2xl">
-                Currently open
-              </h2>
-              <span className="oak-nameplate">typescript</span>
-            </div>
-            <CodeBlock
-              code={DEMO_CODE}
-              filename="lantern.ts"
-              lang="typescript"
-            />
-          </div>
-        </section>
-      </div>
+      <SpotifyShowcase />
 
       <SiteFooter />
     </div>

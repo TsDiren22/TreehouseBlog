@@ -82,8 +82,22 @@ export function ChevronIcon({ open, ...rest }: SVGProps<SVGSVGElement> & { open?
   );
 }
 
+export function CameraIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor"
+         strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"
+         {...props}>
+      <path d="M1.5 5.5h1.3l1.2-2h4l1.2 2H14.5v7h-13z"
+            fill="currentColor" className="opacity-15" />
+      <path d="M1.5 5.5h1.3l1.2-2h4l1.2 2H14.5v7h-13z" />
+      <circle cx="8" cy="9" r="2" />
+    </svg>
+  );
+}
+
 export function iconForFile(name: string) {
-  if (/\.(ts|tsx|js|jsx)$/i.test(name)) return NeedleIcon;
-  if (/\.(md|mdx|txt)$/i.test(name))    return ScrollIcon;
+  if (/\.(ts|tsx|js|jsx)$/i.test(name))              return NeedleIcon;
+  if (/\.(md|mdx|txt)$/i.test(name))                 return ScrollIcon;
+  if (/\.(jpg|jpeg|png|webp|avif|gif)$/i.test(name)) return CameraIcon;
   return LeafIcon;
 }

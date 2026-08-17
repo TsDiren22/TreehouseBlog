@@ -141,10 +141,21 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%":      { transform: "translateY(-3px)" },
         },
+        "disc-throw": {
+          "0%":   { transform: "translate(0, 0) rotate(0deg) scale(1)",         opacity: "1" },
+          "100%": { transform: "translate(140%, -35%) rotate(55deg) scale(0.6)", opacity: "0" },
+        },
+        "disc-enter": {
+          "0%":   { transform: "translate(-140%, 30%) rotate(-45deg) scale(0.6)", opacity: "0" },
+          "60%":  { transform: "translate(8%, -6%) rotate(6deg) scale(1.04)",     opacity: "1" },
+          "100%": { transform: "translate(0, 0) rotate(0deg) scale(1)",           opacity: "1" },
+        },
       },
       animation: {
-        flicker: "flicker 4s ease-in-out infinite",
-        sway:    "sway 6s ease-in-out infinite",
+        flicker:     "flicker 4s ease-in-out infinite",
+        sway:        "sway 6s ease-in-out infinite",
+        "disc-throw": "disc-throw 450ms cubic-bezier(0.4,0,1,1) forwards",
+        "disc-enter": "disc-enter 550ms cubic-bezier(0.2,0.8,0.2,1) forwards",
       },
     },
   },

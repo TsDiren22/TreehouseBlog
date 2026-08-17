@@ -42,6 +42,24 @@ const TREE: FileNode[] = [
         ],
       },
 
+      {
+        name: "photography/",
+        kind: "folder",
+        href: "/photography",
+        children: [
+          { name: "gallery.jpg", kind: "file", href: "/photography" },
+        ],
+      },
+
+      {
+        name: "moodboard/",
+        kind: "folder",
+        href: "/moodboard",
+        children: [
+          { name: "board.jpg", kind: "file", href: "/moodboard" },
+        ],
+      },
+
       { name: "signals.tsx", kind: "file", href: "/signals" },
       { name: "contact.mdx", kind: "file", href: "/contact" },
       { name: "README.md",   kind: "file", href: "/" },

@@ -99,11 +99,11 @@ function About() {
                 short posts about what I&rsquo;m building and
                 thinking, a list of{" "}
                 <Link href="/projects" className="link-pine">projects</Link>,
-                and a snapshot of what I&rsquo;m{" "}
+                and whatever&rsquo;s{" "}
                 <Link href="/signals" className="link-pine">
-                  currently coding
+                  on repeat
                 </Link>
-                . If any of it resonates,{" "}
+                {" "}right now. If any of it resonates,{" "}
                 <Link href="/contact" className="link-pine">
                   get in touch
                 </Link>

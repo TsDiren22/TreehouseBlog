@@ -20,8 +20,8 @@ export default function ContactPage() {
           <dl className="grid gap-5 sm:grid-cols-2">
             <ContactRow
               label="email"
-              value="info@diren.nl"
-              href="mailto:info@diren.nl"
+              value="diren_2001@hotmail.com"
+              href="mailto:diren_2001@hotmail.com"
             />
             <ContactRow label="github"   value="@TsDiren22	"     href="https://github.com/TsDiren22" />
             <ContactRow label="linkedin" value="Onur Diren Öztürk"  href="https://www.linkedin.com/in/onur-diren-öztürk-7948ba141/?locale=en_US" />
@@ -29,7 +29,7 @@ export default function ContactPage() {
           </dl>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a href="mailto:info@diren.nl" className="btn-lantern">
+            <a href="mailto:diren_2001@hotmail.com" className="btn-lantern">
               Send email
             </a>
             <span className="font-mono text-[11px] uppercase tracking-carved text-bark-500">

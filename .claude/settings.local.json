@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"c:\\\\Projects\\\\DirenWeb\" | Where-Object { $_.Name -ne \"node_modules\" } | Format-Table Name, PSIsContainer -AutoSize)",
+      "PowerShell(Get-ChildItem \"c:\\\\Projects\\\\DirenWeb\\\\app\" -Recurse | Where-Object { -not $_.PSIsContainer } | Select-Object FullName | ForEach-Object { $_.FullName.Replace\\(\"c:\\\\Projects\\\\DirenWeb\\\\\", \"\"\\) })",
+      "PowerShell(Get-ChildItem \"c:\\\\Projects\\\\DirenWeb\\\\components\" -Recurse | Where-Object { -not $_.PSIsContainer } | Select-Object FullName | ForEach-Object { $_.FullName.Replace\\(\"c:\\\\Projects\\\\DirenWeb\\\\\", \"\"\\) })"
+    ]
+  }
+}
