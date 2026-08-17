@@ -438,6 +438,14 @@ html[data-theme="moonlit"] .schematic-pin {
     0 2px 4px rgba(15, 24, 36, 0.55),
     0 0 10px rgba(203, 213, 209, 0.55);
 }
+html[data-theme="moonlit"] .schematic-card {
+  background-color: #2A1A10;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(255,196,132,0.05) 0 1px, transparent 2px),
+    radial-gradient(circle at 80% 60%, rgba(255,196,132,0.04) 0 1px, transparent 2px),
+    radial-gradient(circle at 50% 85%, rgba(255,196,132,0.03) 0 1px, transparent 2px),
+    linear-gradient(180deg, #3F2A1B 0%, #2A1A10 100%);
+}
 html[data-theme="moonlit"] .schematic-card:hover,
 html[data-theme="moonlit"] .schematic-card:focus-within {
   box-shadow:
@@ -445,6 +453,17 @@ html[data-theme="moonlit"] .schematic-card:focus-within {
     0 12px 28px -10px rgba(203, 213, 209, 0.35),
     0 0 60px rgba(43, 59, 71, 0.45);
 }
+html[data-theme="moonlit"] .icon-stamp {
+  background-color: rgba(241, 228, 205, 0.10);
+  color: #F1E4CD;
+  box-shadow:
+    0 0 0 1px rgba(241, 228, 205, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+}
+html[data-theme="moonlit"] .text-mahogany\/55 { color: rgba(241, 228, 205, 0.45); }
+html[data-theme="moonlit"] .text-blueprint-ink\/70 { color: rgba(203, 213, 209, 0.75); }
+html[data-theme="moonlit"] .border-blueprint-dim\/60 { border-color: rgba(203, 213, 209, 0.35); }
 html[data-theme="moonlit"] .lantern-spot {
   background: radial-gradient(
     260px circle at var(--mx) var(--my),
